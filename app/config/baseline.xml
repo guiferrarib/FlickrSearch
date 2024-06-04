@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>EmptyFunctionBlock:NetworkModule.kt$TrustAllCertificates${}</ID>
+    <ID>FunctionNaming:AppScaffold.kt$@Composable fun AppScaffold()</ID>
+    <ID>FunctionNaming:AppScaffold.kt$@OptIn(FlowPreview::class) @Composable fun AppNavHost( navController: NavHostController, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:DetailScreen.kt$@Composable fun DetailScreen(image: FlickrPhoto)</ID>
+    <ID>FunctionNaming:MainActivity.kt$@Composable fun Greeting(name: String, modifier: Modifier = Modifier)</ID>
+    <ID>FunctionNaming:MainActivity.kt$@Preview(showBackground = true) @Composable fun GreetingPreview()</ID>
+    <ID>FunctionNaming:MainScreen.kt$@Composable fun SearchBar(query: String, onQueryChanged: (String) -&gt; Unit)</ID>
+    <ID>FunctionNaming:MainScreen.kt$@OptIn(FlowPreview::class) @Composable fun MainScreen(viewModel: PhotoViewModel = koinViewModel(), onImageClick: (FlickrPhoto) -&gt; Unit)</ID>
+    <ID>FunctionNaming:MainScreen.kt$@SuppressLint("UnusedBoxWithConstraintsScope") @Composable fun ImageGrid(images: List&lt;FlickrPhoto&gt;, onImageClick: (FlickrPhoto) -&gt; Unit)</ID>
+    <ID>FunctionNaming:Theme.kt$@Composable fun FlickrSearchTheme( darkTheme: Boolean = isSystemInDarkTheme(), // Dynamic color is available on Android 12+ dynamicColor: Boolean = true, content: @Composable () -&gt; Unit )</ID>
+    <ID>LongMethod:MainScreen.kt$@SuppressLint("UnusedBoxWithConstraintsScope") @Composable fun ImageGrid(images: List&lt;FlickrPhoto&gt;, onImageClick: (FlickrPhoto) -&gt; Unit)</ID>
+    <ID>MagicNumber:AppScaffold.kt$500</ID>
+    <ID>MagicNumber:Color.kt$0xFF625b71</ID>
+    <ID>MagicNumber:Color.kt$0xFF6650a4</ID>
+    <ID>MagicNumber:Color.kt$0xFF7D5260</ID>
+    <ID>MagicNumber:Color.kt$0xFFCCC2DC</ID>
+    <ID>MagicNumber:Color.kt$0xFFD0BCFF</ID>
+    <ID>MagicNumber:Color.kt$0xFFEFB8C8</ID>
+    <ID>MagicNumber:MainScreen.kt$1000</ID>
+    <ID>MagicNumber:MainScreen.kt$3</ID>
+    <ID>MagicNumber:MainScreen.kt$750</ID>
+    <ID>MatchingDeclarationName:FlickItemState.kt$FlickrItemState</ID>
+    <ID>MaxLineLength:PhotoIntegrationTest.kt$PhotoIntegrationTest$loading = false</ID>
+    <ID>MaxLineLength:PhotoService.kt$PhotoService$val response: HttpResponse = client.get("https://api.flickr.com/services/feeds/photos_public.gne?format=json&amp;tags=$query&amp;nojsoncallback=1")</ID>
+    <ID>NewLineAtEndOfFile:AppModule.kt$com.ia.flickrsearch.photo.presentation.di.AppModule.kt</ID>
+    <ID>NewLineAtEndOfFile:AppScaffold.kt$com.ia.flickrsearch.photo.ui.screens.AppScaffold.kt</ID>
+    <ID>NewLineAtEndOfFile:Color.kt$com.ia.flickrsearch.photo.ui.theme.Color.kt</ID>
+    <ID>NewLineAtEndOfFile:DetailScreen.kt$com.ia.flickrsearch.photo.ui.screens.DetailScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleUnitTest.kt$com.ia.flickrsearch.ExampleUnitTest.kt</ID>
+    <ID>NewLineAtEndOfFile:FlickItemState.kt$com.ia.flickrsearch.photo.data.model.FlickItemState.kt</ID>
+    <ID>NewLineAtEndOfFile:GetPhotosUseCase.kt$com.ia.flickrsearch.photo.domain.usecase.GetPhotosUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivity.kt$com.ia.flickrsearch.photo.presentation.activity.MainActivity.kt</ID>
+    <ID>NewLineAtEndOfFile:MainScreen.kt$com.ia.flickrsearch.photo.ui.screens.MainScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:MockClient.kt$com.ia.flickrsearch.utils.MockClient.kt</ID>
+    <ID>NewLineAtEndOfFile:MockResponse.kt$com.ia.flickrsearch.utils.MockResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:Modules.kt$com.ia.flickrsearch.utils.di.Modules.kt</ID>
+    <ID>NewLineAtEndOfFile:MyApp.kt$com.ia.flickrsearch.app.MyApp.kt</ID>
+    <ID>NewLineAtEndOfFile:NetworkModule.kt$com.ia.flickrsearch.app.di.NetworkModule.kt</ID>
+    <ID>NewLineAtEndOfFile:NetworkUtils.kt$com.ia.flickrsearch.utils.NetworkUtils.kt</ID>
+    <ID>NewLineAtEndOfFile:PhotoMapper.kt$com.ia.flickrsearch.utils.PhotoMapper.kt</ID>
+    <ID>NewLineAtEndOfFile:PhotoRemoteDataSource.kt$com.ia.flickrsearch.photo.data.datasource.PhotoRemoteDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:PhotoRemoteDataSourceImpl.kt$com.ia.flickrsearch.photo.data.datasourceimpl.PhotoRemoteDataSourceImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:PhotoRepository.kt$com.ia.flickrsearch.photo.domain.repository.PhotoRepository.kt</ID>
+    <ID>NewLineAtEndOfFile:PhotoRepositoryImpl.kt$com.ia.flickrsearch.photo.data.repositoryimpl.PhotoRepositoryImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:PhotoService.kt$com.ia.flickrsearch.photo.data.service.PhotoService.kt</ID>
+    <ID>NewLineAtEndOfFile:PhotoViewModel.kt$com.ia.flickrsearch.photo.presentation.viewmodel.PhotoViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:ResponseInterceptor.kt$com.ia.flickrsearch.utils.ResponseInterceptor.kt</ID>
+    <ID>NewLineAtEndOfFile:Screens.kt$com.ia.flickrsearch.photo.ui.screens.Screens.kt</ID>
+    <ID>NewLineAtEndOfFile:TestKoin.kt$com.ia.flickrsearch.utils.di.TestKoin.kt</ID>
+    <ID>NewLineAtEndOfFile:Theme.kt$com.ia.flickrsearch.photo.ui.theme.Theme.kt</ID>
+    <ID>NewLineAtEndOfFile:Type.kt$com.ia.flickrsearch.photo.ui.theme.Type.kt</ID>
+    <ID>SwallowedException:GetPhotosUseCase.kt$GetPhotosUseCase$e: Exception</ID>
+    <ID>SwallowedException:PhotoMapper.kt$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:GetPhotosUseCase.kt$GetPhotosUseCase$e: Exception</ID>
+    <ID>UnusedParameter:MainScreen.kt$onImageClick: (FlickrPhoto) -&gt; Unit</ID>
+    <ID>UnusedPrivateProperty:PhotoIntegrationTest.kt$PhotoIntegrationTest$private val localDataSource: PhotoRemoteDataSource by inject()</ID>
+    <ID>WildcardImport:ExampleUnitTest.kt$import org.junit.Assert.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

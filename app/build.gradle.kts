@@ -1,3 +1,8 @@
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+import kotlinx.kover.gradle.plugin.dsl.AggregationType
+import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -52,6 +57,13 @@ android {
             excludes += "/META-INF/**"
         }
     }
+    sourceSets {
+        getByName("main") {
+            assets {
+                srcDirs("src/main/assets")
+            }
+        }
+    }
 }
 
 dependencies {
@@ -96,4 +108,97 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+kover {
+    reports {
+        filters {
+            excludes {
+                packages(
+                    "com.ia.flickrsearch.app",
+                    "com.ia.flickrsearch.photo.ui",
+                    "com.ia.flickrsearch.photo.presentation.activity",
+                    "com.ia.flickrsearch.photo.data.model",
+                )
+            }
+        }
+        verify {
+            rule("Basic Line Coverage") {
+                disabled = false
+                bound {
+                    minValue = 80 // Minimum coverage percentage
+                    maxValue = 100 // Maximum coverage percentage (optional)
+                    aggregationForGroup = AggregationType.COVERED_PERCENTAGE
+                    coverageUnits.set(CoverageUnit.LINE)
+                }
+            }
+
+            rule("Branch Coverage") {
+                disabled = false
+                bound {
+                    minValue = 70 // Minimum coverage percentage for branches
+                    coverageUnits.set(CoverageUnit.BRANCH)
+                    aggregationForGroup = AggregationType.COVERED_PERCENTAGE
+                }
+            }
+        }
+    }
+}
+
+detekt {
+    toolVersion = "1.23.6"
+    buildUponDefaultConfig = true // preconfigure defaults
+    allRules = true // activate all available (even unstable) rules.
+    config.setFrom("$projectDir/config/detekt.yml")
+    baseline =
+        file("$projectDir/config/baseline.xml") // a way of suppressing issues before introducing detekt
+}
+
+tasks.withType<Detekt>().configureEach {
+    autoCorrect = true
+    reports {
+        html.required.set(true) // observe findings in your browser with structure and code snippets
+        xml.required.set(true) // checkstyle like format mainly for integrations like Jenkins
+        txt.required.set(true)
+        sarif.required.set(true)
+        md.required.set(true) // simple Markdown format
+    }
+}
+
+// Kotlin DSL
+tasks.withType<Detekt>().configureEach {
+    autoCorrect = true
+    jvmTarget = "1.8"
+}
+tasks.withType<DetektCreateBaselineTask>().configureEach {
+    jvmTarget = "1.8"
+}
+
+tasks.register("detektAll", Detekt::class) {
+
+    description = "DETEKT build for all modules"
+    parallel = true
+    ignoreFailures = false
+    autoCorrect = true
+    buildUponDefaultConfig = true
+    setSource(projectDir)
+    baseline.set(project.file("$rootDir/app/config/baseline.xml"))
+    config.setFrom(project.file("$rootDir/app/config/detekt.yml"))
+    include("**/*.kt", "**/*.kts")
+    exclude("**/resources/**", "**/build/**")
+
+    reports {
+        html.required.set(true)
+        html.outputLocation.set(project.file("build/reports/detekt.html"))
+    }
+}
+
+tasks.register<DetektCreateBaselineTask>("detektAllBaseline") {
+    description = "Create Detekt baseline on the whole project."
+    ignoreFailures.set(false)
+    setSource(projectDir)
+    config.setFrom(project.file("$rootDir/app/config/detekt.yml"))
+    include("**/*.kt", "**/*.kts")
+    exclude("**/resources/**", "**/build/**")
+    baseline.set(project.file("$rootDir/app/config/baseline.xml"))
 }

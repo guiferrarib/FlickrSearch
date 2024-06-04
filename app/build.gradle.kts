@@ -45,11 +45,11 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/**"
         }
     }
 }
@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.cio)
     implementation(libs.kotlinx.datetime)
     implementation(libs.koin.core)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
